@@ -7,7 +7,6 @@ module.exports = {
       output: {
         publicPath: './public',
       },
-      test: /\.+(js)$/,
       loader: defaultLoaders.babel,
       include: path.resolve(__dirname, '../src'),
     })
@@ -17,7 +16,4 @@ module.exports = {
 
 module.exports = withSass({
   cssModules: true,
-  sassLoaderOptions: {
-    includePaths: [path.join(__dirname, 'styles')],
-  }
 })

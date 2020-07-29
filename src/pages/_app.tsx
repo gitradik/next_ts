@@ -1,32 +1,9 @@
-import App from 'next/app'
-import Head from 'next/head'
-import React from 'react'
+import { NextComponentType } from 'next'
+import { AppContext, AppInitialProps, AppProps } from 'next/app'
 
-class MyApp extends App {
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
-    }
-
-    return { pageProps }
-  }
-
-  render() {
-    const { Component, pageProps } = this.props
-
-    const title: string = 'Online store'
-
-    return (
-      <>
-        <Head>
-          <title>{title}</title>
-        </Head>
-        <Component {...pageProps} />
-      </>
-    )
-  }
+const MyApp: NextComponentType<
+AppContext, AppInitialProps, AppProps> = ({ Component, pageProps }) => {
+  return <Component {...pageProps} />
 }
 
 export default MyApp

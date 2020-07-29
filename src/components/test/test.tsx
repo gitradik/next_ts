@@ -1,24 +1,26 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { NextPage, NextPageContext } from 'next'
 
-interface TestProps {
-  title: string
+type Props = {
+  text: string,
 }
 
-export default class Test extends React.Component {
-  constructor(props: TestProps) {
-    super(props)
-    this.state = {
+const Test: NextPage<Props> = ({ text }) => {
+  useEffect(() => {
+  })
 
-    }
-  }
-
-  render() {
-    return (
-      <>
-        <div>Test Component</div>
-      </>
-    )
-  }
-
-  componentDidMount() {}
+  return (
+    <div>
+      <h1>Posts in "{text}"</h1>
+    </div>
+  )
 }
+
+Test.getInitialProps = async () => {
+
+  return {
+    text: 'Test text',
+  }
+}
+
+export default Test
